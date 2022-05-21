@@ -34,22 +34,20 @@ new Vue({
     },
     computed: {
         advantagesNumber: function () {
-            let sum = 0;
-            for (let i in this.arguments) {
-                if (this.arguments[i].isAdvantage) {
-                    sum += this.arguments[i].weight;
+            return this.arguments.reduce(function (sum, argument) {
+                if (argument.isAdvantage) {
+                    sum += argument.weight;
                 }
-            }
-            return sum;
+                return sum;
+            }, 0);
         },
         disadvantagesNumber: function () {
-            let sum = 0;
-            for (let i in this.arguments) {
-                if (!this.arguments[i].isAdvantage) {
-                    sum += this.arguments[i].weight;
+            return this.arguments.reduce(function (sum, argument) {
+                if (!argument.isAdvantage) {
+                    sum += argument.weight;
                 }
-            }
-            return sum;
+                return sum;
+            }, 0);
         }
     },
     methods: {
