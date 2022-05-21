@@ -52,7 +52,7 @@ new Vue({
     },
     methods: {
         parseTitle: function (title) {
-            let matches = title.match(/([+-]) ?(.*?) (\d)/);
+            const matches = title.match(/([+-]) ?(.*?) (\d)/);
 
             if (!matches) {
                 return null;
@@ -65,7 +65,7 @@ new Vue({
             };
         },
         addArgument: function () {
-            let argument = this.parseTitle(this.newArgument);
+            const argument = this.parseTitle(this.newArgument);
             if (argument !== null) {
                 this.arguments.push(argument);
                 this.newArgument = '';
@@ -77,13 +77,13 @@ new Vue({
             this.saveArguments();
         },
         weightUpdated: function (index, value) {
-            let argument = this.arguments[index];
+            const argument = this.arguments[index];
             argument.weight = value;
             this.$set(this.arguments, index, argument);
             this.saveArguments();
         },
         titleUpdated: function (index, value) {
-            let argument = this.arguments[index];
+            const argument = this.arguments[index];
             argument.title = value;
             this.$set(this.arguments, index, argument);
             this.saveArguments();
@@ -97,12 +97,12 @@ new Vue({
         }
     },
     mounted() {
-        let title = localStorage.getItem('title');
+        const title = localStorage.getItem('title');
         if (title) {
             this.title = title;
         }
 
-        let arguments = localStorage.getItem('arguments');
+        const arguments = localStorage.getItem('arguments');
         if (arguments) {
             this.arguments = JSON.parse(arguments);
         }
