@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
+main {
+    display: flex;
+}
+
+footer {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+header h1 {
+    padding: 1rem;
+}
+
+header input {
+    display: block;
+    width: 98%;
+    margin: 0 auto;
+    font: inherit;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.advantages, .disadvantages {
+    width: 50%;
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem;
+}
+
+.argument {
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    display: flex;
+}
+
+.argument span {
+    line-height: 2rem;
+}
+
+.argument .weight {
+    color: #000;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    margin-right: .5rem;
+}
+
+.argument .remove {
+    font-size: 2rem;
+    margin-left: .5rem;
+    cursor: pointer;
+}
+
+.argument .title {
+    flex-grow: 1;
+    font-size: 1.5rem;
+}
+
+.advantages .argument {
+    background: #4F8D29FF;
+}
+
+.advantages .argument .weight {
+    background: #a1da7f;
+}
+
+.disadvantages .argument {
+    background: #AB3F1FFF;
+}
+
+.disadvantages .argument .weight {
+    background: #d28f7e;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Arguments</title>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <h1 contenteditable="true" @blur="saveTitle">{{title}}</h1>
+                <input type="text" @keyup.enter="addArgument" v-model.trim="newArgument" placeholder="+argument 3 or -argument 2">
+            </header>
+
+            <main>
+                <ul class="advantages">
+                    <argument
+                        v-for="(argument, index) in arguments"
+                        v-if="argument.isAdvantage"
+                        :title="argument.title"
+                        :weight="argument.weight"
+                        :is-advantage="true"
+                        @remove="removeArgument(index)"
+                        @title-updated="titleUpdated(index, $event)"
+                        @weight-updated="weightUpdated(index, $event)"
+                        :key="argument.title">
+                    </argument>
+                </ul>
+
+                <ul class="disadvantages">
+                    <argument
+                        v-for="(argument, index) in arguments"
+                        v-if="!argument.isAdvantage"
+                        :title="argument.title"
+                        :weight="argument.weight"
+                        :is-advantage="false"
+                        @remove="removeArgument(index)"
+                        @title-updated="titleUpdated(index, $event)"
+                        @weight-updated="weightUpdated(index, $event)"
+                        :key="argument.title"
+                    ></argument>
+                </ul>
+            </main>
+
+            <footer>
+                {{advantagesNumber}} Yes, {{disadvantagesNumber}} No → {{advantagesNumber - disadvantagesNumber >= 0 ? 'Yes' : 'No'}}
+            </footer>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
